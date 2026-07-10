@@ -33,3 +33,13 @@ class StaticGridEnv:
         # Define the action space: 4 possible directions (up, down, left, right)
         self.action_space = 4
 
+        # Observation space is the grid itself, represented by its dimensions
+        self.observation_space = (self.grid_size, self.grid_size)
+
+        # Pygame screen initialization is delayed until rendering to avoid immediate window creation
+        self.screen = None
+        self.render_initialized = False  # Flag to indicate if rendering has been set up
+
+    def reset(self):
+        """
+        Reset the environment by selecting a random start position for the agent,
