@@ -23,3 +23,13 @@ class StaticGridEnv:
 
         # Define the goal position at the bottom-right corner of the grid
         self.goal = (self.grid_size - 1, self.grid_size - 1)
+
+        self.state = None  # The agent's current position will be set later
+
+        # Set random seed if provided to ensure consistent results
+        if seed is not None:
+            np.random.seed(seed)
+
+        # Define the action space: 4 possible directions (up, down, left, right)
+        self.action_space = 4
+
