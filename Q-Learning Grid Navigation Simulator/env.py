@@ -43,3 +43,13 @@ class StaticGridEnv:
     def reset(self):
         """
         Reset the environment by selecting a random start position for the agent,
+        avoiding obstacles and the goal.
+
+        Returns:
+            np.array: The initial position of the agent.
+        """
+        while True:
+            # Randomly select starting coordinates (x, y) in the grid
+            start_x = np.random.randint(0, self.grid_size)
+            start_y = np.random.randint(0, self.grid_size)
+
