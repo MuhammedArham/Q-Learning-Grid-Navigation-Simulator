@@ -63,3 +63,13 @@ class StaticGridEnv:
 
         return self.state
 
+    def step(self, action):
+        """
+        Take an action in the environment, resulting in a state transition.
+
+        Args:
+            action (int): The action taken by the agent (0: up, 1: down, 2: left, 3: right).
+
+        Returns:
+            np.array: The new state (position) of the agent.
+            int: The reward for the action taken.
