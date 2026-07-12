@@ -53,3 +53,13 @@ class StaticGridEnv:
             start_x = np.random.randint(0, self.grid_size)
             start_y = np.random.randint(0, self.grid_size)
 
+            # Ensure the starting position is not on an obstacle or the goal
+            if (start_x, start_y) not in self.obstacles and (
+                start_x,
+                start_y,
+            ) != self.goal:
+                self.state = (start_x, start_y)
+                break
+
+        return self.state
+
