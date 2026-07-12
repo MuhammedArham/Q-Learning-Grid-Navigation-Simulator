@@ -73,3 +73,13 @@ class StaticGridEnv:
         Returns:
             np.array: The new state (position) of the agent.
             int: The reward for the action taken.
+            bool: Whether the goal has been reached (episode termination).
+            dict: Extra information (unused here).
+        """
+        x, y = self.state  # Get the agent's current position
+        next_x, next_y = x, y  # Initialize the next state as the current state
+
+        # Update position based on the action
+        if action == 0 and x > 0:  # Move up
+            next_x -= 1
+        elif action == 1 and x < self.grid_size - 1:  # Move down
