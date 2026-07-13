@@ -83,3 +83,13 @@ class StaticGridEnv:
         if action == 0 and x > 0:  # Move up
             next_x -= 1
         elif action == 1 and x < self.grid_size - 1:  # Move down
+            next_x += 1
+        elif action == 2 and y > 0:  # Move left
+            next_y -= 1
+        elif action == 3 and y < self.grid_size - 1:  # Move right
+            next_y += 1
+
+        # Check if the next position is an obstacle
+        if (next_x, next_y) in self.obstacles:
+            # If the next position is an obstacle, stay in the current position
+            next_x, next_y = x, y
