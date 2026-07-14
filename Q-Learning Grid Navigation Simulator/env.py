@@ -93,3 +93,13 @@ class StaticGridEnv:
         if (next_x, next_y) in self.obstacles:
             # If the next position is an obstacle, stay in the current position
             next_x, next_y = x, y
+            reward = -5  # Penalty for hitting an obstacle
+        else:
+            reward = -1  # Normal step penalty
+
+        self.state = (next_x, next_y)  # Update the agent's position
+
+        # Check if the agent has reached the goal
+        if self.state == self.goal:
+            return (
+                self.state,
