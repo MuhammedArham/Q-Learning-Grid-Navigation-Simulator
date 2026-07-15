@@ -113,3 +113,13 @@ class StaticGridEnv:
     def render(
         self,
         delay=0.1,
+        mode="human",
+        episode=1,
+        learning_type="Q-learning",
+        availability=None,
+        accuracy=None,
+    ):
+        """
+        Render the grid environment, displaying the agent, goal, and obstacles.
+        Also display information such as episode number, learning type, and optionally availability and accuracy.
+
