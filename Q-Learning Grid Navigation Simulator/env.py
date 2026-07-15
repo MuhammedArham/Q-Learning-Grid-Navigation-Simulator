@@ -103,3 +103,13 @@ class StaticGridEnv:
         if self.state == self.goal:
             return (
                 self.state,
+                100,
+                True,
+                {},
+            )  # Reward of 100 for reaching the goal
+
+        return self.state, reward, False, {}  # Continue the episode
+
+    def render(
+        self,
+        delay=0.1,
