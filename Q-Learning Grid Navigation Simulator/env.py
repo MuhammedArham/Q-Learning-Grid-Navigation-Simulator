@@ -123,3 +123,13 @@ class StaticGridEnv:
         Render the grid environment, displaying the agent, goal, and obstacles.
         Also display information such as episode number, learning type, and optionally availability and accuracy.
 
+        Args:
+            delay (float): Delay between frames (to control speed of rendering).
+            mode (str): Rendering mode (unused in this implementation).
+            episode (int): Current episode number.
+            learning_type (str): The type of learning algorithm being used (e.g., Q-learning, SARSA).
+            availability (float): Teacher availability (optional, as a percentage).
+            accuracy (float): Teacher accuracy (optional, as a percentage).
+        """
+        if not self.render_initialized:
+            # Initialize Pygame only when rendering for the first time
